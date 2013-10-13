@@ -9,6 +9,8 @@ Install
 Example
 ---
 
+See [demo](http://component-kelonye.rhcloud.com/#/525ab0ce7173c47c2e00000b)
+
     $ make example
 
 License
