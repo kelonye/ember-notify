@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href='../public/public.css' rel='stylesheet' media='screen'>
+  </head>
+  <body>
+    <script src='../public/public.js'></script>
+    <script type='text/javascript'>
+      var notify = require('ember-notify');
+      var o = Em.Object.createWithMixins(notify);
+      Em.run.next(function(){
+        o.notify('Message!').sticky();
+      });
+    </script>
+  </body>
+</html>

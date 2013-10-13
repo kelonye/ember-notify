@@ -1,0 +1,17 @@
+{
+  "name": "ember-notify",
+  "version": "0.0.1",
+  "description": "Growl notifications",
+  "dependencies": {
+    "kelonye/ember": "*",
+    "component/notification": "*"
+  },
+  "main": "lib/index.js",
+  "scripts": [
+    "lib/index.js"
+  ],
+  "styles": [
+    "lib/style.css"
+  ],
+  "license": "MIT"
+}
