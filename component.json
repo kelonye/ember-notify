@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "description": "Growl notifications",
   "dependencies": {
-    "kelonye/ember": "*",
-    "component/notification": "*"
+    "kelonye/ember": "1.0.0-rc6",
+    "component/notification": "0.0.3"
   },
   "main": "lib/index.js",
   "scripts": [
