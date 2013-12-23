@@ -4,13 +4,59 @@
     <link href='../public/public.css' rel='stylesheet' media='screen'>
   </head>
   <body>
+    <span id='timer' style='font-size: 30px; '></span>
     <script src='../public/public.js'></script>
     <script type='text/javascript'>
+
       var notify = require('ember-notify');
-      var o = Em.Object.createWithMixins(notify);
-      Em.run.next(function(){
-        o.notify('Message!').sticky();
+
+      App = Em.Application.create();
+
+      App.IndexController = Em.Controller.extend(notify, {
+        init: function(){
+
+          this._super();
+
+          var tmpl = [
+            '<button>start timer</button>',
+            '<button>stop timer</button>'
+          ].join('');
+
+          var view = this.notify(tmpl).sticky();
+
+          view.el.find('button:nth-child(1)').click(function(){
+            view.emit('start timer');
+            return false;
+          });
+
+          view.el.find('button:nth-child(2)').click(function(){
+            view.emit('stop timer');
+            return false;
+          });
+
+          view.on('close', function(){
+            view.emit('stop timer');
+          });
+
+          view.on('stop timer', function(){
+            clearInterval(view.intervalId);
+          });
+
+          view.on('start timer', function(){
+            var n = 100;
+            function fn(){
+              if (--n===0){
+                return view.emit('stop timer');
+              }
+              $('#timer').html(n);
+            }
+            view.emit('stop timer');
+            view.intervalId = setInterval(fn, 1000);
+          });
+
+        }
       });
+
     </script>
   </body>
 </html>
