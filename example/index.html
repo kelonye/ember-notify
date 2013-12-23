@@ -12,7 +12,7 @@
 
       App = Em.Application.create();
 
-      App.IndexController = Em.Controller.extend(notify, {
+      App.IndexController = Em.Controller.extend({
         init: function(){
 
           this._super();
@@ -22,7 +22,7 @@
             '<button>stop timer</button>'
           ].join('');
 
-          var view = this.notify(tmpl).sticky();
+          var view = notify(tmpl).sticky();
 
           view.el.find('button:nth-child(1)').click(function(){
             view.emit('start timer');
