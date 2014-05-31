@@ -8,8 +8,12 @@ node_modules:
 components:
 	@$(component) install --dev
 
-public: lib/index.js
-	@$(component) build --dev -n $@ -o $@
+public: lib/index.js lib/template.js lib/style.css
+	$(component) build --dev -n $@ -o $@
+	@touch $@
+
+lib/template.js: lib/template.html
+	@$(component) convert $<
 
 example: default
 	@xdg-open example/index.html

@@ -4,6 +4,6 @@
   "description": "Growl notifications",
   "license": "MIT",
   "devDependencies": {
-    "component-hooks": "*"
+    "component-hooks": "1.2.2"
   }
 }
